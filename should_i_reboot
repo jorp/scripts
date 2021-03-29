@@ -1,0 +1,9 @@
+#!/bin/bash
+# should you reboot to use the latest kernel?
+
+latest_kernel=$(rpm -q --last kernel | perl -pe 's/^kernel-(\S+).*/$1/' | head -1)
+live_kernel=$(uname -r)
+echo -e "live:      $live_kernel"
+echo -e "installed: $latest_kernel"
+test $latest_kernel = $live_kernel || echo REBOOT
+uptime --pretty
