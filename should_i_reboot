@@ -5,5 +5,5 @@ latest_kernel=$(rpm -q --last kernel | perl -pe 's/^kernel-(\S+).*/$1/' | head -
 live_kernel=$(uname -r)
 echo -e "live:      $live_kernel"
 echo -e "installed: $latest_kernel"
-test $latest_kernel = $live_kernel || echo REBOOT
 uptime --pretty
+test $latest_kernel = $live_kernel || echo REBOOT && false

@@ -3,3 +3,5 @@ kramdown
 listen
 rougify
 safe_yaml
+bundle
+bundler
