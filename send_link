@@ -1,0 +1,13 @@
+#!/bin/bash
+url=$(xclip -selection c -o)
+echo $url
+
+read -r -p "Are you sure? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+		ssh x220 "DISPLAY=:0 firefox --new-tab $url"
+        ;;
+    *)
+       exit 1
+        ;;
+esac
